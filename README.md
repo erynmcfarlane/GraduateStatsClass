@@ -8,7 +8,7 @@ The plan is not necessarily for the students to be able to apply all of these di
 
 Finally, I will expect students to be able to implement simulations and appropriate analyses for their own thesis work - this will comprise the final project for the class (in four? parts - proposal, inital code, review of someone else's code, and final code).
 
-### Think about adding seminar series as possible assignment - what are the statistics that were used in the talk to answer the question?
+#### Think about adding seminar series as possible assignment - what are the statistics that were used in the talk to answer the question? Do you have criticisms of the statistics that are used?
 
 
 Classes I'm considering including:
