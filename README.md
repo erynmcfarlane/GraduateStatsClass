@@ -1,4 +1,4 @@
-# GraduateStatsClass
+# Graduate Stats Class
 Thinking hard about and developing a stats class for York's graduate biology stats class.
 Things will be liberally borrowed from Alex Buerkle's population genetics class, the University of Wyoming Data Science working group, University of Edinburgh's SEED, and other instances that I've written code to help students (i.e. the Flycatcher Field season R bootcamp)
 
