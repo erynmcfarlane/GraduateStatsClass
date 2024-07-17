@@ -53,5 +53,5 @@ Classes I'm considering including:
     2) draft of statistical methods with proposed simulations and methods for feedback (10%) - week 8
     3) draft introduction for feedback (10%) - week 10
    4) full registered report, including introduction, methods, statistical methods, simulations and simulated results (25%) - due during exam period
-
+- Do I want to add something where students review each other's code?
 
