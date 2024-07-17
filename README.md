@@ -13,7 +13,7 @@ Finally, I will expect students to be able to implement simulations and appropri
 
 Classes I'm considering including:
 
-### 1 Intro to R
+### 1 Intro to R, intro to model fitting, intro to the learning objectives, and why I think simulations are the best way to learn statistics
 
 ### 2 Beastiary of Distributions
 
