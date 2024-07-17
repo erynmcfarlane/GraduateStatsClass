@@ -37,6 +37,12 @@ Classes I'm considering including:
 
 ### 12 Work period for final registered report, including working through feedback
 
+## Learning Outcomes
+- General statistical literacy - can you read a paper and feel confident that you know what they did, or even better, how to do what they did?
+- Phenomenological understanding of how distributions come to be. Why do we expect data to look this way? How do you expect your data to look?
+- Writing skills - how do we describe statistical methods? How should we report results?
+- Some level of comfort coding in R, or, finding R code and applying it. 
+
 ## Potential Breakdown of grades
 - 10% attendence and attempts, where code is written in 5/6 of the first lectures. Just need to hand 5 things in to get full marks. They don't need to work, you just need to show good faith effort!
 - 20% summarize a published paper, simulate data (and justify the simulations) to match the data as have been describe, write analyses in R to analyze the data as has been described (possibly done in a group?) - due at end of week 7, where week 7 is a work period
