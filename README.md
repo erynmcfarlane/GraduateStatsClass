@@ -27,5 +27,15 @@ Classes I'm considering including:
 
 ### 7 machine learning, cross validation, random forest specifically
 
-### 8 sparse models
+## Potential Breakdown of grades
+- 10% attendence and attempts, where code is written in 5/6 of the first lectures. Just need to hand 5 things in to get full marks. They don't need to work, you just need to show good faith effort!
+- 20% summarize a published paper, simulate data (and justify the simulations) to match the data as have been describe, write analyses in R to analyze the data as has been described (possibly done in a group?) - due at end of week 7, where week 7 is a work period
+- 15% presentation of a tutorial for how to 1) simulate data and 2) analyse the simulated data for a specific method that was not covered in the first 6 weeks (to be done in a group?) - due in class on week 9, where week 8 is a work period
+- 55% registered report with a short (2pg) introduction, methods, and specific statistical methods to match a project in the student's thesis.
+ - this will be broken down into:
+    1) draft experimental methods for feedback (10%)
+    2) draft of statistical methods with proposed simulations and methods for feedback (10%) - week 
+    3) draft introduction for feedback (10%)
+   4) full registered report, including introduction, methods, statistical methods, simulations and simulated results (25%) - due during exam period
+
 
