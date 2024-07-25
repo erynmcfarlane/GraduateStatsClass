@@ -41,7 +41,8 @@ Classes I'm considering including:
 - General statistical literacy - can you read a paper and feel confident that you know what they did, or even better, how to do what they did?
 - Phenomenological understanding of how distributions come to be. Why do we expect data to look this way? How do you expect your data to look?
 - Writing skills - how do we describe statistical methods? How should we report results?
-- Some level of comfort coding in R, or, finding R code and applying it. 
+- Some level of comfort coding in R, or, finding R code and applying it.
+- application of specific statistical methods, and R, to a question you would like to answer
 
 ## Potential Breakdown of grades
 - 10% attendence and attempts, where code is written in 5/6 of the first lectures. Just need to hand 5 things in to get full marks. They don't need to work, you just need to show good faith effort!
