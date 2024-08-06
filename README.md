@@ -16,22 +16,32 @@ Classes I'm considering including:
 ### 1 Intro to R, intro to model fitting, intro to the learning objectives, and why I think simulations are the best way to learn statistics
 
 ### 2 Beastiary of Distributions
+- this will be the first day where we start simulations
 
 ### 3 t tests, anovas, chi squareds (i.e. basic parametric comparisons of categories)
-
+- we will be simulating data to try all of these tests
+  
 ### 4 linear regression (i.e. why all models are basically the same again, with more emphasis on quantitative data)
-
+- we will be simulating data to try all of these tests
+  
 ### 5 logistic regression, other generalized linear models
+ - everyone should have chosen their paper for methods summary assignment by today, and run it by me!
 
 ### 6 hierarchical models/mixed effects models
+- we will be simulating data to try all of these tests
 
-### 7 Published paper assignment day - assignment will have been given well before, and papers chosen
+### 7 Published paper assignment day 
+ - assignment will have been given well before, and papers chosen
 
-### 8 Work period for statistical tutorials
+### 8 AMA statistics day 
+ - what else do we need to know about?
+- ideally to be submitted before hand, basically a Q&A
 
-### 9 Presentations of Tutorials
+### 9 AMA statistics day 
+- what else do we need to know about?
+- ideally to be submitted before hand, basically a Q&A
 
-### 10 Presentations of Tutorials
+### 10 Work period for final registered report, including working through feedback
 
 ### 11 Work period for final registered report, including working through feedback
 
@@ -46,13 +56,12 @@ Classes I'm considering including:
 
 ## Potential Breakdown of grades
 - 10% attendence and attempts, where code is written in 5/6 of the first lectures. Just need to hand 5 things in to get full marks. They don't need to work, you just need to show good faith effort!
-- 20% summarize a published paper, simulate data (and justify the simulations) to match the data as have been describe, write analyses in R to analyze the data as has been described (possibly done in a group?) - due at end of week 7, where week 7 is a work period
-- 15% presentation of a tutorial for how to 1) simulate data and 2) analyse the simulated data for a specific method that was not covered in the first 6 weeks (to be done in a group?) - due in class on week 9, where week 8 is a work period - Presented weeks 9 and 10 *NB* I'm not sure this is as useful as the other things, and work periods to do the other things might be a lot more useful?
-- 55% registered report with a short (2pg) introduction, methods, and specific statistical methods to match a project in the student's thesis. Possibly following [Nature Ecology Evolution](https://www.nature.com/natecolevol/submission-guidelines/registeredreports), or [Ecology and Evolution](https://onlinelibrary.wiley.com/page/journal/20457758/homepage/registeredreports.html) guidelines. 
+- 30% summarize a published paper, simulate data (and justify the simulations) to match the data as have been describe, write analyses in R to analyze the data as has been described (possibly done in a group?) - due at end of week 7, where week 7 is a work period
+- 60% registered report with a short (2pg) introduction, methods, and specific statistical methods to match a project in the student's thesis. Possibly following [Nature Ecology Evolution](https://www.nature.com/natecolevol/submission-guidelines/registeredreports), or [Ecology and Evolution](https://onlinelibrary.wiley.com/page/journal/20457758/homepage/registeredreports.html) guidelines. 
  - this will be broken down into:
     1) draft experimental methods for feedback (10%) - week 4
     2) draft of statistical methods with proposed simulations and methods for feedback (10%) - week 8
     3) draft introduction for feedback (10%) - week 10
-   4) full registered report, including introduction, methods, statistical methods, simulations and simulated results (25%) - due during exam period
+   4) full registered report, including introduction, methods, statistical methods, simulations and simulated results (30%) - due during exam period
 - Do I want to add something where students review each other's code?
 
