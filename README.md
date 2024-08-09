@@ -37,9 +37,7 @@ Classes I'm considering including:
  - what else do we need to know about?
 - ideally to be submitted before hand, basically a Q&A
 
-### 9 AMA statistics day 
-- what else do we need to know about?
-- ideally to be submitted before hand, basically a Q&A
+### 9 Work period for feedback on someone else's code and methods
 
 ### 10 Work period for final registered report, including working through feedback
 
@@ -61,7 +59,8 @@ Classes I'm considering including:
  - this will be broken down into:
     1) draft experimental methods for feedback (10%) - week 4
     2) draft of statistical methods with proposed simulations and methods for feedback (10%) - week 8
-    3) draft introduction for feedback (10%) - week 10
-   4) full registered report, including introduction, methods, statistical methods, simulations and simulated results (30%) - due during exam period
-- Do I want to add something where students review each other's code?
+    3) feedback on someone else's code (5%) - week 9
+    4) draft introduction for feedback (10%) - week 10
+   5) full registered report, including introduction, methods, statistical methods, simulations and simulated results (25%) - due during exam period
+
 
