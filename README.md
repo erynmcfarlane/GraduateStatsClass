@@ -8,6 +8,9 @@ The plan is not necessarily for the students to be able to apply all of these di
 
 Finally, I will expect students to be able to implement simulations and appropriate analyses for their own thesis work - this will comprise the final project for the class (in four? parts - proposal, initial code, review of someone else's code, and final code).
 
+We might borrow some exercises from [here:](https://scientistseessquirrel.wordpress.com/2020/05/26/steal-this-updated-syllabus-for-scientific-writing/)
+to help with the writing. 
+
 
 Classes I'm considering including:
 
