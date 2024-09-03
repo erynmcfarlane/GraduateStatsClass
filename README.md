@@ -16,7 +16,7 @@ Classes I'm considering including:
 
 ### 1 Intro to R, intro to model fitting, intro to the learning objectives, and why I think simulations are the best way to learn statistics
 
-### 2 Beastiary of Distributions
+### 2 Bestiary of Distributions
 - this will be the first day where we start simulations
 
 ### 3 t tests, anovas, chi squareds (i.e. basic parametric comparisons of categories)
@@ -54,7 +54,7 @@ Classes I'm considering including:
 - application of specific statistical methods, and R, to a question you would like to answer
 
 ## Potential Breakdown of grades
-- 10% attendence and attempts, where code is written in 5/6 of the first lectures. Just need to hand 5 things in to get full marks. They don't need to work, you just need to show good faith effort!
+- 10% attendance and attempts, where code is written in 5/6 of the first lectures. Just need to hand 5 things in to get full marks. They don't need to work, you just need to show good faith effort!
 - 30% summarize a published paper, simulate data (and justify the simulations) to match the data as have been describe, write analyses in R to analyze the data as has been described (possibly done in a group?) - due at end of week 7, where week 7 is a work period
 - 60% registered report with a short (2pg) introduction, methods, and specific statistical methods to match a project in the student's thesis. Possibly following [Nature Ecology Evolution](https://www.nature.com/natecolevol/submission-guidelines/registeredreports), or [Ecology and Evolution](https://onlinelibrary.wiley.com/page/journal/20457758/homepage/registeredreports.html) guidelines. 
  - this will be broken down into:
