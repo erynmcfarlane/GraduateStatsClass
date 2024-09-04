@@ -25,6 +25,38 @@ https://www.zoology.ubc.ca/~bio301/Bio301/Lectures/Lecture25/Overheads.html
 
 I want to talk about a bunch of distributions, and then I want to simulate them as we go so people can see what I'm talking about. 
 
+I'm going to organize this by continuous vs discrete
+
+##Continuous
+
+1) Normal distribution - so called bell curve. A good example is the height of a bunch of people, with an average height in Canada of 170 cm, and a standard deviation of 6.35 cm.
+```{r normal}
+height<-rnorm(1000, mean=170, sd=6.35)
+hist(height)
+plot(density(height))
+
+pdf(height)
+dev.off()
+
+```
+
+
+2) Exponential distribution - waiting time for a single event to happen, given that there's a constant probability per unit time. Time until death, where instantaneous death rate is lambda. Isn't this where the covid R0 comes from - time until doubling?
+
+```{r Exponential}
+exp<-rexp(1000, 0.5) ##time until death, where instantaneous death rate is lambda
+hist(exp)
+plot(density(exp))
+```
+
+3) Gamma distribution - waiting time to any number of positive cases (for rth occurance at a rate lambda). This is a continuous distribution, and is the continuous counter part of the negative binomial. This generalized the exponential distribution with a clear right skew. For example, how many days until we've had 20 eggs laid in the population.
+
+```{r Gamma}
+gamma<-rgamma(100, shape=100, scale=0.5) ##time until death, where instantaneous death rate is lambda
+hist(gamma)
+```
+
+
 1) Bernoulli - the distribution of the number of successes on a single Bernoulli trial.
 This is what we were talking about last week, for example survival at a single time point. 0 or 1, not a bunch of 0's or 1's (that would be binomial). If we toss a coin once, what's the probability of it being heads? Special case of binomial, n=1
 
@@ -66,20 +98,9 @@ pois_chicks<-rpois(100, 6.5) # number of chicks produced in a season, or a life 
 hist(pois_chicks)
 ```
 
-6) Exponential distribution - waiting time for a single event to happen, given that there's a constant probability per unit time. Time until death, where instantaneous death rate is lambda. Isn't this where the covid R0 comes from - time until doubling?
-
-```{r Exponential}
-exp<-rexp(100, 0.5) ##time until death, where instantaneous death rate is lambda
-hist(exp)
-```
 
 
-7) Gamma distribution - waiting time to any number of positive cases (for rth occurance at a rate lambda). This is a continuous distribution, and is the continuous counter part of the negative binomial. This generalized the exponential distribution with a clear right skew. For example, how many days until we've had 20 eggs laid in the population.
 
-```{r Gamma}
-gamma<-rgamma(100, shape=100, scale=0.5) ##time until death, where instantaneous death rate is lambda
-hist(gamma)
-```
 
 
 8) Beta distribution - probability of success (in contrast to number of successes, which is what the binomial models). Trivia Answer - what is Alex Buerkle's favourite distribution? Has two  parameters (a and b) to describe the distribution, which can basically be anything between 0 and 1 (but excluding both). For example, allele frequencies are well characterized by the beta distribution. Continuous distribution. This allows you to model anything that looks like a probability. 
