@@ -96,7 +96,7 @@ Again, our simulations aren't to be actually causal, I'm simulating predictor va
 QUESTION:what is the difference between the assumed distributions for the prior predictor variables, and this one?
 QUESTION: Describe the predictor variable. What does this mean biologically to your trait of interest. How did you decide on the numbers in line 101?
 
-```{r Linear Regression}
+```{r Linear Regression and correlation}
 
 linear_regression_predictor<-0.5*trait_of_interest+rnorm(1000, 0, 4) ### change these numbers!! Remember that this is backwards from how we did this on day 1, so the slope should go the other way!
 data3<-cbind(data2, linear_regression_predictor)
@@ -107,6 +107,5 @@ summary(lm)### what is the output here? What are we interested in understanding 
 eq = paste0("y = ", round(lm$coefficients[2],1), "*x", "+",round(lm$coefficients[1],1), ", R^2=", round(summary(lm)$adj.r.squared, digits=3))
 plot(data3$linear_regression_predictor, data3$trait_of_interest, col="red", main=eq)
 abline(lm, col="black")
-
 
 ```
