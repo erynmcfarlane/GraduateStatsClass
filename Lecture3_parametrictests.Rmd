@@ -9,13 +9,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
 We're going to simulate some data that can be used in each of the following tests.
 
 The response variable is normally distributed, and then we're going to back calculate some predictor variables.
 
-
+QUESTION: Describe the trait that you're simulating. This can be a real trait that you are working on, or hope to work on, or it can be completely made up. 
+Pay special attention to the N that you're expecting, the mean, and the sd around the mean. 
 
 ```{r simulate trait of interest}
 rnorm(1000, 0, 10)->trait_of_interest ### change this to be a trait that you're actually interested in, with an appropriate distribution! 
@@ -26,8 +26,7 @@ max(trait_of_interest)
 
 ```
 
-Describe the trait that you're simulating. This can be a real trait that you are working on, or hope to work on, or it can be completely made up. 
-Pay special attention to the N that you're expecting, the mean, and the sd around the mean. 
+QUESTION: Describe the predictor variable. What does this mean biologically to your trait of interest. How did you decide on the numbers in yes on line 33?
 
 ```{r simulate predictor variable for a t test}
 
@@ -38,16 +37,45 @@ cbind.data.frame(trait_of_interest, predictor_t.test)->data
 
 mean(data[which(data$predictor_t.test==TRUE),1])
 mean(data[which(data$predictor_t.test==FALSE),1])
-t.test(trait_of_interest~predictor_t.test, data=data)
+t.test(trait_of_interest~predictor_t.test, data=data) ### this does a two sample t-test. What would a one sample t test be testing? How would you do that?
+
+### plots our two samples for distribution
+plot(density(data[which(data$predictor_t.test==FALSE),1]), col="red", main="Two sample t test")
+lines(density(data[which(data$predictor_t.test==TRUE),1]), ylim=c(0, 0.1), xlim=c(-20,20), main="Two Sample T test")
+
+###plot one sample distribution
+plot(density(data$trait_of_interest), col="red", main="One sample t test")
+t.test(data$trait_of_interest) ### what is this test doing?
+
 
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
+Next we're going to move to Anova. So, the first thing we'll do is break our response variable (same one!) into 5 different categories, just as we did for the t-tests. 
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+QUESTION: Describe the predictor variable. What does this mean biologically to your trait of interest. How did you decide on the numbers in lines 60, 61, 62, 63?
+
+```{r Anova}
+
+test1<-sample(trait_of_interest, 200, replace=FALSE, prob = ifelse(trait_of_interest>7, 0.95, 0.15))
+test2<-sample(trait_of_interest[which(trait_of_interest %in% test1 == FALSE)], 200, replace=FALSE, prob = ifelse(trait_of_interest[which(trait_of_interest %in% test1 == FALSE)] >4, 0.95, 0.15))
+test3<-sample(trait_of_interest[which(trait_of_interest %in% test2 == FALSE | trait_of_interest %in% test1 ==FALSE)], 200, replace=FALSE, prob = ifelse(trait_of_interest[which(trait_of_interest %in% test2 == FALSE | trait_of_interest %in% test1 == FALSE)] >0, 0.95, 0.15))
+test4<-sample(trait_of_interest[which(trait_of_interest %in% test2 == FALSE | trait_of_interest %in% test1 ==FALSE | trait_of_interest %in% test3 == FALSE)], 200, replace=FALSE, prob = ifelse(trait_of_interest[which(trait_of_interest %in% test2 == FALSE | trait_of_interest %in% test1 ==FALSE | trait_of_interest %in% test3 == FALSE)] >-4, 0.95, 0.15))
+
+
+anova_predictor<-data.frame(ifelse(trait_of_interest %in% test1 == TRUE, "group1", ifelse(trait_of_interest %in% test2 == TRUE, "group2", ifelse(trait_of_interest %in% test3 == TRUE, "group3", ifelse(trait_of_interest %in% test4 == TRUE, "group4", "group5")))))
+
+data2<-cbind.data.frame(data, anova_predictor)
+names(data2)<-c("trait_of_interest", "predictor_t.test", "anova_predictor")
+
+
+anova(aov(trait_of_interest~anova_predictor, data=data2)) ### what does this do?
+
+anova(lm(trait_of_interest~anova_predictor, data=data2)) ### what does this do? 
+summary(aov(trait_of_interest~anova_predictor, data=data2)) ### what does this do? What do you notice about the last three tests?
+
+### what information is missing here that you wished you had to understand your study better?
+analysis_of_variance<-aov(trait_of_interest~anova_predictor, data=data2) ##name the model to keep it for downstream
+TukeyHSD(analysis_of_variance, conf.level = 0.95) ### what does this do, and where are the differences?
+
 ```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
