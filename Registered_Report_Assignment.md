@@ -19,7 +19,7 @@ A review of the relevant literature that motivates the research question and a f
 **These can be handed in in point form!** 
 
 * Full description of proposed sample characteristics, including criteria for data inclusion and exclusion (e.g. outlier extraction). Procedures for objectively defining exclusion criteria due to technical errors or for any other reasons must be specified, including details of how and under what conditions data would be replaced.
-* A description of experimental procedures, including randomization and blinding procedures, in sufficient detail to allow another researcher to repeat the methodology exactly. These procedures must be adhered to in the subsequent experiments for the IPA to be implemented.
+* A description of experimental procedures, including randomization and blinding procedures, in sufficient detail to allow another researcher to repeat the methodology exactly. 
 
 ### Statistical Methods and Simulated - Due Week 8 (5th November) - for initial review and feedback (10%)
 
