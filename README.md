@@ -14,37 +14,38 @@ to help with the writing.
 
 Classes I'm considering including:
 
-### 1 Intro to R, intro to model fitting, intro to the learning objectives, and why I think simulations are the best way to learn statistics
+### 1 Intro to R, intro to model fitting, intro to the learning objectives, and why I think simulations are the best way to learn statistics - Sept 10
 
-### 2 Bestiary of Distributions
+### 2 Bestiary of Distributions - Sept 17
 - this will be the first day where we start simulations
 
-### 3 t tests, anovas, chi squareds (i.e. basic parametric comparisons of categories)
+### 3 t tests, anovas, chi squareds (i.e. basic parametric comparisons of categories) - Sept 24
 - we will be simulating data to try all of these tests
   
-### 4 linear regression (i.e. why all models are basically the same again, with more emphasis on quantitative data)
+### 4 linear regression (i.e. why all models are basically the same again, with more emphasis on quantitative data) - Oct 1
 - we will be simulating data to try all of these tests
+- Possibly some work period time for the paper assignment and the RR. 
   
-### 5 logistic regression, other generalized linear models
+### 5 logistic regression, other generalized linear models - Oct 8
  - everyone should have chosen their paper for methods summary assignment by today, and run it by me!
 
-### 6 hierarchical models/mixed effects models
+### 6 hierarchical models/mixed effects models - Oct 22
 - we will be simulating data to try all of these tests
 
-### 7 Published paper assignment day 
+### 7 Published paper assignment day - Oct 29
  - assignment will have been given well before, and papers chosen
 
-### 8 AMA statistics day 
+### 8 AMA statistics day - Nov 5
  - what else do we need to know about?
 - ideally to be submitted before hand, basically a Q&A
 
-### 9 Work period for feedback on someone else's code and methods
+### 9 Work period for feedback on someone else's code and methods - Nov 12
 
-### 10 Work period for final registered report, including working through feedback
+### 10 Work period for final registered report, including working through feedback - Nov 19
 
-### 11 Work period for final registered report, including working through feedback
+### 11 Work period for final registered report, including working through feedback - Nov 26
 
-### 12 Work period for final registered report, including working through feedback
+### 12 Work period for final registered report, including working through feedback - Dec 3
 
 ## Learning Outcomes
 - General statistical literacy - can you read a paper and feel confident that you know what they did, or even better, how to do what they did?
