@@ -22,7 +22,7 @@ Classes I'm considering including:
 ### 3 t tests, anovas, chi squareds (i.e. basic parametric comparisons of categories) - Sept 24
 - we will be simulating data to try all of these tests
   
-### 4 linear regression (i.e. why all models are basically the same again, with more emphasis on quantitative data) - Oct 1
+### 4 multiple linear regression (i.e. why all models are basically the same again, with more emphasis on quantitative data) - Oct 1
 - we will be simulating data to try all of these tests
 - Possibly some work period time for the paper assignment and the RR. 
   
