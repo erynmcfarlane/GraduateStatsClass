@@ -24,7 +24,8 @@ Classes I'm considering including:
   
 ### 4 multiple linear regression (i.e. why all models are basically the same again, with more emphasis on quantitative data) - Oct 1
 - we will be simulating data to try all of these tests
-- Possibly some work period time for the paper assignment and the RR. 
+- Possibly some work period time for the paper assignment and the RR.
+- Also possibly a good time to talk about plots
   
 ### 5 logistic regression, other generalized linear models - Oct 8
  - everyone should have chosen their paper for methods summary assignment by today, and run it by me!
