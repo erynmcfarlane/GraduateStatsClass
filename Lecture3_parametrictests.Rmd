@@ -89,12 +89,15 @@ TukeyHSD(analysis_of_variance, conf.level = 0.95) ### what does this do, and whe
 ```
 
 
-Moving on to linear regression - we've already talked about this, so I'm going to go quickly. 
+
 
 Again, our simulations aren't to be actually causal, I'm simulating predictor variables to fit a response I've already made. Normally, we would simulate the response variables from more thoughtful predictor variables.
 
 QUESTION:what is the difference between the assumed distributions for the prior predictor variables, and this one?
-QUESTION: Describe the predictor variable. What does this mean biologically to your trait of interest. How did you decide on the numbers in line 101?
+
+QUESTION: Describe the predictor variable. What does this mean biologically to your trait of interest. How did you decide on the numbers in line 104?
+
+QUESTION: What is the difference between a regression and a correlation? When would you use each? How does the test stat from the correlation compare to the effect size from the regression?
 
 ```{r Linear Regression and correlation}
 
@@ -108,4 +111,7 @@ eq = paste0("y = ", round(lm$coefficients[2],1), "*x", "+",round(lm$coefficients
 plot(data3$linear_regression_predictor, data3$trait_of_interest, col="red", main=eq)
 abline(lm, col="black")
 
+### with the same data:
+cor.test(data3$trait_of_interest, data3$linear_regression_predictor) ### compare the sample estimate to the 1) simulated effect sizes and 2) to the estimated effect size 
+### how does the correlation estimate change when you change line 104?
 ```
