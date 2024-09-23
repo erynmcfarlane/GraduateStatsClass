@@ -47,8 +47,9 @@ summary(data)
 ```
 
 An assumption of multiple regression is that there isn't multicolinarity. 
-We are breaking this assumption. Explore what happens to your R^2 when you change the strength of correlation between the paramters.
+We are breaking this assumption. 
 
+QUESTION: Explore what happens to your R^2 when you change the strength of correlation between the paramters.
 
 
 ```{r Run a multiple regression}
@@ -58,6 +59,21 @@ summary(model1)
 anova(model1)
 
 ```
+
+
+There are a couple of ways to plot multiple regressions. Some folks like 3D plots, so they can see the plan of the regression incorporating two predictor variables. This isn't my favourite, as it only works for two variables. 
+
+Here, I'm going to plot using partial residuals - essentially, we're going to plot the relationship of one variable after we've accounted for the other two.
+
+
+```{r plot multiple regression using partial residuals}
+
+plot(data$food, resid(lm(tarsus_length~weather+clouds, data=data))) ### Do this for each of the three parameters of interest!
+abline(model1)
+
+
+```
+
 QUESTION: Report the results of your multiple regression as you would in a results section of a paper. 
 
 ```{r Run a multiple regression with interactions}
@@ -96,3 +112,4 @@ anova(model3)
 ```
 
 QUESTION: Write a statistical methods paragraph and a statistical results paragraph. Make sure that everything in your statistical methods is reported in your results!
+
