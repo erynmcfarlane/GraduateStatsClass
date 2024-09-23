@@ -85,6 +85,8 @@ names(data2)<-c("tarsus_length", "food", "weather", "clouds", "fat_reserves", "d
 
 QUESTION: Describe in words what your interaction term is doing.
 
+Below, I am testing a 4 way interaction. Explain why this might or might not be appropriate for your own simulated data. 
+
 ```{r analyze with the interaction}
 
 lm(fat_reserves~food*weather*clouds*density, data=data2)->model3
