@@ -1,0 +1,115 @@
+---
+title: "Lecture 4 Multiple Regression"
+author: "Eryn McFarlane"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Multiple Regression
+
+We're back to simulating the predictor variables directly, and then taking the response from those - this is a more typical way to simulate!
+
+QUESTION: What parameters are you imagining in your simulations?
+
+```{r Simulate Multiple parameters which affect the response variable}
+library(MASS) ### this might be a package you need to install
+
+##simulate multivariate normal data - this means that our parameters are related to each other
+sigma <- matrix(c(1, 0.2, 0.1,
+                       0.2, 1, 0.15,
+                       0.1, 0.15, 1), nrow = 3) ## positive-definite symmetric matrix specifying the covariance matrix of the variables - what does this mean? Make you sure can explain to yourself what this line does.
+
+### This line gives us 3 parameters - how many do we want?
+predictors<-mvrnorm(1000,rep(0,3), sigma) ###we are simulating the predictors here. What have we told this command to do? How correlated are the predictors?
+cor.test(predictors[,1], predictors[,2])
+
+```
+
+QUESTION: How does changing sigma on line 22 change the correlations on line 28?
+
+
+QUESTION: What response variable are you imagining? How is it distributed? 
+QUESTION: What relationship are you simulating between your predictor variables and your response variable?
+QUESTION: How much error are you simulating? How much irreduciable error do you expect in your response variable of interest?
+
+```{r Simulate a response variable which all three variables affects the response variable}
+
+response<-1.5*predictors[,1]+0.75*predictors[,2]+0.05*predictors[,3]+rnorm(1000, 0, 1) ### change this line based on what your response variable and imagined predictors are. Note that I have simulated a relationship between all predictors and the response, and note how much error I have simulated. 
+
+cbind.data.frame(response, predictors)->data
+names(data)<-c("tarsus_length", "food", "weather", "clouds") ### PUT INFORMATIVE NAMES HERE FOR WHAT YOU'RE SIMULATING
+summary(data)
+
+```
+
+An assumption of multiple regression is that there isn't multicolinarity. 
+We are breaking this assumption. 
+
+QUESTION: Explore what happens to your R^2 when you change the strength of correlation between the paramters.
+
+
+```{r Run a multiple regression}
+
+lm(tarsus_length~food+weather+clouds, data=data)->model1
+summary(model1)
+anova(model1)
+
+```
+
+
+There are a couple of ways to plot multiple regressions. Some folks like 3D plots, so they can see the plan of the regression incorporating two predictor variables. This isn't my favourite, as it only works for two variables. 
+
+Here, I'm going to plot using partial residuals - essentially, we're going to plot the relationship of one variable after we've accounted for the other two.
+
+
+```{r plot multiple regression using partial residuals}
+
+plot(data$food, resid(lm(tarsus_length~weather+clouds, data=data))) ### Do this for each of the three parameters of interest!
+abline(model1)
+
+
+```
+
+QUESTION: Report the results of your multiple regression as you would in a results section of a paper. 
+
+```{r Run a multiple regression with interactions}
+
+lm(tarsus_length~food*weather*clouds, data=data)->model2
+summary(model2)
+anova(model2)
+
+```
+QUESTION: Do you have evidence of an interaction? How does an interaction change the p-values or R^2? Why is this the case?
+
+An interaction is when the relationship between the response variable and a predictor variable changes depending on an other predictor variable.
+
+QUESTION: Think of an interaction term!
+
+```{r simulate an interaction}
+predictor_4<-rnorm(1000,0,1)
+
+response2<-1.5*predictors[,1]+ifelse(predictors[,1]>0.4, 0.5, 0)*predictor_4+rnorm(1000, 0, 1) ### make sure that you understand for yourself what this line does. Change this line so that it makes sense for your simulations!
+
+cbind.data.frame(data, response2, predictor_4)->data2
+
+names(data2)<-c("tarsus_length", "food", "weather", "clouds", "fat_reserves", "density")
+```
+
+QUESTION: Describe in words what your interaction term is doing.
+
+Below, I am testing a 4 way interaction. Explain why this might or might not be appropriate for your own simulated data. 
+
+```{r analyze with the interaction}
+
+lm(fat_reserves~food*weather*clouds*density, data=data2)->model3
+summary(model3)
+anova(model3)
+
+```
+
+QUESTION: Write a statistical methods paragraph and a statistical results paragraph. Make sure that everything in your statistical methods is reported in your results!
+
