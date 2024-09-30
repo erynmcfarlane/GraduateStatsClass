@@ -55,6 +55,29 @@ Let's simulate some Poisson data!
 
 ## Poisson Regression
 
+```{r Poisson Regression}
+
+
+
+x1 = runif(1000, min = 0, max = 1) ### this is where I change my predictor variables
+x2=runif(1000, min = 0, max = 1)
+x3=runif(1000, min = 0, max = 1)
+head(x) # First six values of x
+
+lambda = exp(0.5 + 0.5*x + 2.5*x^2) ### here I'm simulating three betas against my three predictor variables to make my lambda
+
+
+head(lambda)
+
+y = rpois(1000, lambda = lambda) ### error is added in this step, remembering that the mean and the variance are the same!
+head(y)
+
+plot(x, log(y) )
+
+plot(x, y)
+
+poisson_model<-glm(y~)
+```
 
 
 
