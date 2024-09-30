@@ -1,0 +1,61 @@
+---
+title: "Lecture 5 Logistic, Poisson and Negative Binomial Regressions"
+author: "Eryn McFarlane"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We're going to simulate some predictor variables for each logistic regression, poisson regression and negative bionomial regression, and then analyze each. 
+
+## Logistic Regression
+
+We're going to have one response variable and two predictor variables (one which is yes or no, the other which is continuous).
+
+### QUESTION: What are you imagining your response variable to be? What are your two predictor variables?
+
+```{r logistic regression}
+N=1000
+predictor_cont<-rnorm(N,0,1) 
+predictor_binary<-rbinom(N,1,0.5)
+
+y<-1.5*predictor_cont+2.5*predictor_binary+rnorm(N, 0, 0.01) ### Remember that to make this do-able in a linear framework, like this, we're assuming this is on a log scale!
+
+### We're now going to draw a probability distribution from y, assuming that y is on a logit scale
+
+y_prob<-plogis(y)
+
+###Question, tell me about the distribution of y_prob?!
+
+### we can now draw from the probability distribution (so that all of our responses are 0,1)
+
+y_dummy = rbinom(n = N, size = 1, prob = y_prob)
+
+
+data<-cbind.data.frame(1:N, y_prob, y, predictor_cont, predictor_binary)
+
+log_reg_model<-glm(y_dummy~predictor_binary+predictor_cont, data=data, family='binomial')
+
+### if you have loaded and installed lmerTest, it will give you p-values in your summary, if not, it won't
+summary(log_reg_model)
+
+### From here, you need to back transform to get the estimates on the y scale, instead of the log(y) scale
+
+exp(coef(log_reg_model)) ### these are on the 'regular' scale, not the log scale
+exp(confint(log_reg_model))
+
+```
+
+### Question: What did you expect the effect sizes of the predictors to be, based on what you simulated (hint, you will need to transform from line 25)?
+
+Let's simulate some Poisson data!
+
+## Poisson Regression
+
+
+
+
+
