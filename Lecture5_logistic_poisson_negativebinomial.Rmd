@@ -55,6 +55,8 @@ Let's simulate some Poisson data!
 
 ## Poisson Regression
 
+### Question: What is your imagined response variable here? What are your imagined predictors?
+
 ```{r Poisson Regression}
 
 
