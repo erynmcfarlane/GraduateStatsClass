@@ -90,11 +90,19 @@ summary(poisson_model)
 
 ###back transform the coefficients 
 
-exp(coef(log_reg_model)) ### these are on the 'regular' scale, not the log scale
-exp(confint(log_reg_model))
-## The coefficient for x1 is XX (FILL ME IN!) This means that the expected log count for a one-unit increase in x1 is XX. This means that the count difference (biological scale) for a one unit increase in x1 is XX. 
+exp(coef(poisson_model)) ### these are on the 'regular' scale, not the log scale
+exp(confint(poisson_model))
+ 
 ```
 
+### Question: The coefficient for x1 is XX (FILL ME IN!) This means that the expected log count for a one-unit increase in x1 is XX. This means that the count difference (biological scale) for a one unit increase in x1 is XX.
+
+```{r Negative Binomial Regression}
+library(MASS)
+
+### NEED TO SIMULATE SOME DATA
+
+MASS::rnegbin(100, mu=5, theta=10)
 
 
-
+negative_binomial_model<-glm.nb(y ~ x1, family="ne", data=data_negbiom)
