@@ -55,30 +55,44 @@ Let's simulate some Poisson data!
 
 ## Poisson Regression
 
-### Question: What is your imagined response variable here? What are your imagined predictors?
+This is mostly borrowed from [Simulate Simulate Simulate 3!](https://aosmith.rbind.io/2018/07/18/simulate-poisson-edition/)
+
+### Question: What is your imagined response variable here? What is your imagined predictor?
+### Question: What happens if you add more than one predictor (i.e. x2)?
 
 ```{r Poisson Regression}
 
+x1 = rnorm(1000,1,0.1) ### here there is one predictors, this a good place to imagine some biology
+summary(x1)
 
+### Question, 
 
-x1 = runif(1000, min = 0, max = 1) ### this is where I change my predictor variables
-x2=runif(1000, min = 0, max = 1)
-x3=runif(1000, min = 0, max = 1)
-head(x) # First six values of x
+lambda = exp(0.5 + 2.5*x1) ### this is where I change the effect sizes for each predictor
 
-lambda = exp(0.5 + 0.5*x + 2.5*x^2) ### here I'm simulating three betas against my three predictor variables to make my lambda
-
+###remember that this means that log(lambda) is a linear model!!
+### here I'm simulating three betas against my three predictor variables to make my lambda
+### The step above simulates the mean of each value of the response variable. lambda values are continuous, not discrete counts.
+## λ is the unobserved true mean of the Poisson distribution for the t-th observation
 
 head(lambda)
 
 y = rpois(1000, lambda = lambda) ### error is added in this step, remembering that the mean and the variance are the same!
+### remember that y is count data!
 head(y)
 
-plot(x, log(y) )
+plot(x1, log(y)) ### note the residuals - are they normally distributed? Is that okay?
+plot(x1,y)
 
-plot(x, y)
+data_poisson<-cbind.data.frame(y, x1)
 
-poisson_model<-glm(y~)
+poisson_model<-glm(y ~ x1, family="poisson", data=data_poisson)
+summary(poisson_model)
+
+###back transform the coefficients 
+
+exp(coef(log_reg_model)) ### these are on the 'regular' scale, not the log scale
+exp(confint(log_reg_model))
+## The coefficient for x1 is XX (FILL ME IN!) This means that the expected log count for a one-unit increase in x1 is XX. This means that the count difference (biological scale) for a one unit increase in x1 is XX. 
 ```
 
 
