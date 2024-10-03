@@ -7,6 +7,8 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(pscl)
+library(MASS)
 ```
 
 We're going to simulate some predictor variables for each logistic regression, poisson regression and negative bionomial regression, and then analyze each. 
@@ -46,10 +48,15 @@ summary(log_reg_model)
 
 exp(coef(log_reg_model)) ### these are on the 'regular' scale, not the log scale
 exp(confint(log_reg_model))
+pR2(log_reg_model) ### r2CU (Nagelkerke R2 is the most comparable to our typical R2)
+
+
 
 ```
 
 ### Question: What did you expect the effect sizes of the predictors to be, based on what you simulated (hint, you will need to transform from line 25)?
+
+### Question: The coefficient for predictor_cont is XX (FILL ME IN!) This means that the expected log OR for a one-unit increase in predictor_cont is XX. This means that the OR (biological scale) for a one unit increase in predictor_cont is XX. The R2 for this model is XX. This means that XXXX. 
 
 Let's simulate some Poisson data!
 
@@ -92,17 +99,51 @@ summary(poisson_model)
 
 exp(coef(poisson_model)) ### these are on the 'regular' scale, not the log scale
 exp(confint(poisson_model))
- 
+pR2(poisson_model) ### r2CU (Nagelkerke R2 is the most comparable to our typical R2) 
+
 ```
 
-### Question: The coefficient for x1 is XX (FILL ME IN!) This means that the expected log count for a one-unit increase in x1 is XX. This means that the count difference (biological scale) for a one unit increase in x1 is XX.
+### Question: The coefficient for x1 is XX (FILL ME IN!) This means that the expected log count for a one-unit increase in x1 is XX. This means that the count difference (biological scale) for a one unit increase in x1 is XX. The R2 for this model is XX. This means that XXXX. 
+
+
 
 ```{r Negative Binomial Regression}
 library(MASS)
 
-### NEED TO SIMULATE SOME DATA
-
-MASS::rnegbin(100, mu=5, theta=10)
+neg_binom_predictor <- rnorm(1000, mean = 0, sd = 1) ### what is your imagined predictor?
 
 
-negative_binomial_model<-glm.nb(y ~ x1, family="ne", data=data_negbiom)
+# Log link function: log(mu) = beta0 + beta1 * X
+
+
+mu <- exp(5+1.5 * neg_binom_predictor) ### notice that this is ALSO on a log scale
+### mu is the expected mean for each observation
+
+# Dispersion parameter for the negative binomial distribution
+theta <- 2 ### this makes the difference between negative binomial and poisson. A very large theta would lead the negative binomial to approximate a poisson
+##Play around with theta and see what happens!
+
+
+y_neg_binom <- rnegbin(1000, mu = mu, theta = theta)
+
+# Create a data frame to store the simulated data
+data_negbiom <- cbind.data.frame(y_neg_binom, neg_binom_predictor)
+
+plot(neg_binom_predictor, log(y_neg_binom))
+plot(neg_binom_predictor, y_neg_binom)
+
+
+
+
+negative_binomial_model<-glm.nb(y_neg_binom ~ neg_binom_predictor, data=data_negbiom)
+summary(negative_binomial_model)
+
+exp(coef(negative_binomial_model)) ### these are on the 'regular' scale, not the log scale
+exp(confint(negative_binomial_model))
+pR2(negative_binomial_model)
+
+### r2CU (Nagelkerke R2 is the most comparable to our typical R2)
+```
+
+### Question: The coefficient for neg_binom_predictor is XX (FILL ME IN!) This means that the expected log count for a one-unit increase in neg_binom_predictor is XX. This means that the count difference (biological scale) for a one unit increase in neg_binom_predictor is XX. The R2 for this model is XX. This means that XXXX. 
+
