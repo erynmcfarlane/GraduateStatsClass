@@ -1,0 +1,81 @@
+---
+title: "Lecture 6 - Mixed effects models"
+author: "Eryn McFarlane"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(lme4)
+library(lmerTest)
+install.packages("MuMIn")
+library(MuMIn)
+```
+
+## Simulate some predictor variables
+
+We're going to simulate three predictor variables and one random effect (nesting variable).
+The three predictor variables are all going to affect our response variable. The random effect is just going to mess with this a bit
+
+This nesting variable is going to 1) change the intercept for individuals within that group, and 2) change the error depending on who's in that group
+
+```{r simulation}
+a<-rnorm(1000, 10, 2)
+b<-rnorm(1000, 0, 1)
+c<-rnorm(1000, 5, 1)
+
+g<-sample(1:3, 1000, replace=TRUE) 
+intercept<-ifelse(g==1, 2, ifelse(g==2, -2, 0))
+error<-ifelse(g==1, 0.1, ifelse(g==2, 0.5, 1.5))
+g<-as.factor(g)
+response<-intercept+0.5*a+0.2*b+0.1*c+rnorm(1000, mean=0, sd=error)
+data<-cbind.data.frame(response, a, b, c, g)
+```
+
+```{r plots}
+hist(response) ### lovely and normally distributed
+
+ggplot(data, aes(y=response, x=a))+geom_point()+geom_smooth(method=lm)
+
+ggplot(data, aes(y=response, x=a, colour=g))+geom_point()+geom_smooth(method=lm)
+
+```
+
+QUESTION: Describe the difference between the two scatter plots. What does adding the different colour lines show you?
+
+QUESTION: Describe the residuals in both plots.
+
+Let's do some analyses on this to take a look at the differences. 
+```{r analysis}
+
+
+model1<-lm(response~a+b+c, data=data)
+summary(model1)
+anova(model1)
+
+model2<-lmer(response~a+b+c+(1|g), data=data)
+summary(model2)
+anova(model2)
+
+```
+
+```{r interpretation}
+## R2 for each model
+summary(model1)$adj.r.squared
+
+r.squaredGLMM(model2) ### this gives two R2, what are they both?
+
+##intercepts for each model
+ summary(model1)$coef[1,1]
+ ranef(model2)$g
+
+ ### coefficents for each model
+model1$coefficients
+ 
+summary(model2)$coefficients[, "Estimate"]
+ 
+```
+
+QUESTION: Compare and contrast the R2, intercepts and estimates from each model. Which is closer to what you simulated? Why is this?
