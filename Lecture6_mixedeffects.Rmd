@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 library(lme4)
 library(lmerTest)
-install.packages("MuMIn")
+#install.packages("MuMIn")
 library(MuMIn)
 ```
 
