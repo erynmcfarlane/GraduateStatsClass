@@ -22,7 +22,7 @@ The three predictor variables are all going to affect our response variable. The
 This nesting variable is going to 1) change the intercept for individuals within that group, and 2) change the error depending on who's in that group
 
 ```{r simulation}
-a<-rnorm(1000, 10, 2)
+a<-rnorm(1000, 10, 2) ### change these numbers, change these terms to something meaningful!
 b<-rnorm(1000, 0, 1)
 c<-rnorm(1000, 5, 1)
 
@@ -34,6 +34,8 @@ response<-intercept+0.5*a+0.2*b+0.1*c+rnorm(1000, mean=0, sd=error)
 data<-cbind.data.frame(response, a, b, c, g)
 ```
 
+Let's look at the plots of the data, and then the data against (at least one) of the predictor variables. Feel free to plot separately against each predictor variable, or, plot partial residuals (remember Lecture 4!
+)
 ```{r plots}
 hist(response) ### lovely and normally distributed
 
