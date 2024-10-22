@@ -7,10 +7,13 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+#install.packages("ggplot2")
+#install.packages("lme4")
+#install.packages("lmerTest")
+#install.packages("MuMIn")
 library(ggplot2)
 library(lme4)
 library(lmerTest)
-#install.packages("MuMIn")
 library(MuMIn)
 ```
 
