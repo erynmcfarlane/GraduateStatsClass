@@ -1,5 +1,8 @@
 # Graduate Stats Class
 Thinking hard about and developing a stats class for York's graduate biology stats class.
+
+**Folks are very welcome to use the material here, but please credit Eryn McFarlane at York University, Toronto, and please let me know via emcfar [at] yorku.ca. I'd be happy to know of any mistakes or suggested changes too!!**
+
 Things will be liberally borrowed from Alex Buerkle's population genetics class, the University of Wyoming Data Science working group, University of Edinburgh's SEED, and other instances that I've written code to help students (i.e. the Flycatcher Field season R bootcamp)
 
 My vague plan for this class is to expose students to a bunch of different methods and ways of thinking about statistics, including lots of code to do the stats, and lots of simulations to change processes and see how the methods respond. 
