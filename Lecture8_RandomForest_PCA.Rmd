@@ -1,0 +1,100 @@
+---
+title: "Lecture8"
+author: "Eryn McFarlane"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages("randomcoloR")
+library(randomcoloR)
+library(randomForest)
+library(varSelRF)
+library(randomForestExplainer)
+library(ROCR)
+library(caret)
+library(MASS)
+library(vegan)
+```
+
+Both Random Forest and PCA can be used when you have more parameters than you have samples (p>>n).
+
+## Simulations of multivariate data
+
+```{r Simulate Multiple parameters which affect the response variable}
+library(MASS) ### this might be a package you need to install
+
+# Set the number of individuals and parameters
+individuals <- 50
+parameters <- 40
+
+# Create a mean vector (for simplicity, set means to zero)
+mean_vector <- rep(0, parameters)
+
+random_matrix <- matrix(rnorm(parameters^2), parameters, parameters) ### random matrix
+
+# Ensure it's symmetric and positive definite to use as a covariance matrix
+cov_matrix <- random_matrix %*% t(random_matrix)
+
+simulated_data <- mvrnorm(n = individuals, mu = mean_vector, Sigma = cov_matrix) ### simulate parameters (predictor variables)
+
+
+dim(simulated_data)  # Should be 50 x 50 (individuals x parameters)
+
+head(simulated_data)
+data<-data.frame(simulated_data)
+names(data)<-randomColor(40) ### this just gives us some random names, they're all colours
+
+### those are our parameters, let's now make a response variable
+data$response<- 5+2*data[,2]+0.4*data[,5]+0.4*data[,12]+0.2*data[,15]+0.1*data[,22]+0.1*data[,25]+0.01*data[,32]+0.01*data[,35]+rnorm(40) ### you can add as many causal parameters as you like here.
+
+
+
+```
+
+
+## Random Forest
+
+```{r Random Forest}
+
+rf_sim <- randomForest(
+  x = data[,1:40], 							#these are the predictors
+  y = data[,41],						#response - want it to be regression
+  importance = T,						#save variable importance metrics
+  ntree=4000,							#number of trees to make - general rules, go for 10x's the number of features
+  nodesize = 5, ###performance can change with different node sizes
+  mtry=5)	
+
+varImpPlot(rf_sim, sort=T)
+
+out <- predict(rf_sim,data,'response') #this is the syntax you would use if you wanted to predict to new data..
+#just put new data frame in place of "test"..response just stays response so that it knows to generate yhat
+
+plot(out~data$response)
+
+cor.test(out, data$response)
+
+
+
+```
+
+## PCA
+
+We're going to use the same data for the PCA.
+
+```{r PCA}
+
+PCA<-prcomp(data[,-41]) ##PCA leaving out the response variable
+biplot(PCA)
+summary(PCA)
+loadings<-PCA$rotation
+prediction_loadings<-predict(PCA, newdata=data)
+cbind(data, prediction_loadings)->data_PCA
+
+### regress response against PC1 and PC2
+summary(lm(response~PC1+PC2, data=data_PCA))
+
+
+```
+
