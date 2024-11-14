@@ -10,7 +10,7 @@ This is the summative assessment for Biol 5081 (Fall 2024). This has been taken 
    5) full registered report, including introduction, methods, statistical methods, simulations and simulated results (25%) - due during exam period
 
 
-### Introduction - due Week 10 (12th November) - 2pgs maximum - for initial review and feedback (10%)
+### Introduction - due Week 10 (19th November) - 2pgs maximum - for initial review and feedback (10%)
 
 A review of the relevant literature that motivates the research question and a full description of the experimental aims and hypotheses. This can be hypothesis testing or hypothesis generating. In either case, a clear gap in the literature should be identified, a clear question should be asked, and predictions should be made. Hypotheses should be stated if appropriate. 
 
