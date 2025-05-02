@@ -44,7 +44,7 @@ Classes I'm considering including:
 - ideally to be submitted before hand, basically a Q&A
 
 ### 9 Work period for feedback on someone else's code and methods - Nov 12
-- This will be following Freddy Hillemann et al's [shinny app](https://github.com/fhillemann/code_review_checklist), related to their [paper](https://ecoevorxiv.org/repository/view/9055/). 
+- This will be following Freddy Hillemann et al's [shiny app](https://github.com/fhillemann/code_review_checklist), related to their [paper](https://ecoevorxiv.org/repository/view/9055/). 
 
 ### 10 Work period for final registered report, including working through feedback - Nov 19
 
