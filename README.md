@@ -18,6 +18,7 @@ to help with the writing.
 Classes I'm considering including:
 
 ### 1 Intro to R, intro to model fitting, intro to the learning objectives, and why I think simulations are the best way to learn statistics - Sept 10
+- Will assign this paper https://link.springer.com/article/10.1186/s12915-024-02101-x to be discussed at the beginning of the next class
 
 ### 2 Bestiary of Distributions - Sept 17
 - this will be the first day where we start simulations
