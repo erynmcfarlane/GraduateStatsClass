@@ -1,4 +1,4 @@
-# Research Paper Methods Simulation and Data Analysis - worth 30% - Due week 7 (Oct 29)
+# Research Paper Methods Simulation and Data Analysis - worth 30% - Due week 7 (Oct 24)
 
 Objective: This assignment aims to deepen your understanding of research methodologies and statistical analysis by reading a published scientific paper, summarizing the methods and statistical techniques, simulating data according to your interpretation of the methods, and analyzing the simulated data using appropriate statistical techniques.
 
