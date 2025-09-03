@@ -17,41 +17,43 @@ to help with the writing.
 
 Classes I'm considering including:
 
-### 1 Intro to R, intro to model fitting, intro to the learning objectives, and why I think simulations are the best way to learn statistics - Sept 10
+### 1 Intro to R, intro to model fitting, intro to the learning objectives, and why I think simulations are the best way to learn statistics - Sept 9
 - Will assign this paper https://link.springer.com/article/10.1186/s12915-024-02101-x to be discussed at the beginning of the next class
 
-### 2 Bestiary of Distributions - Sept 17
+### 2 Bestiary of Distributions - Sept 16
 - this will be the first day where we start simulations
 
-### 3 t tests, anovas, chi squareds (i.e. basic parametric comparisons of categories) - Sept 24
+### 3 t tests, anovas, chi squareds (i.e. basic parametric comparisons of categories) - Sept 23
 - we will be simulating data to try all of these tests
   
-### 4 multiple linear regression (i.e. why all models are basically the same again, with more emphasis on quantitative data) - Oct 1
+### 4 multiple linear regression (i.e. why all models are basically the same again, with more emphasis on quantitative data) - Sept 30
 - we will be simulating data to try all of these tests
 - Possibly some work period time for the paper assignment and the RR.
 - Also possibly a good time to talk about plots
   
-### 5 logistic regression, other generalized linear models - Oct 8
+### 5 logistic regression, other generalized linear models - Oct 7
  - everyone should have chosen their paper for methods summary assignment by today, and run it by me!
 
-### 6 hierarchical models/mixed effects models - Oct 22
+### Reading week October 13 - 17
+
+### 6 hierarchical models/mixed effects models - Oct 21
 - we will be simulating data to try all of these tests
 
-### 7 Published paper assignment day - Oct 29
+### 7 Published paper assignment day - Oct 28
  - assignment will have been given well before, and papers chosen
 
-### 8 AMA statistics day - Nov 5
+### 8 AMA statistics day - Nov 4
  - what else do we need to know about?
 - ideally to be submitted before hand, basically a Q&A
 
-### 9 Work period for feedback on someone else's code and methods - Nov 12
+### 9 Work period for feedback on someone else's code and methods - Nov 11
 - This will be following Freddy Hillemann et al's [shiny app](https://github.com/fhillemann/code_review_checklist), related to their [paper](https://ecoevorxiv.org/repository/view/9055/). 
 
-### 10 Work period for final registered report, including working through feedback - Nov 19
+### 10 Work period for final registered report, including working through feedback - Nov 18
 
-### 11 Work period for final registered report, including working through feedback - Nov 26
+### 11 Work period for final registered report, including working through feedback - Nov 25
 
-### 12 Work period for final registered report, including working through feedback - Dec 3
+### 12 Work period for final registered report, including working through feedback - Dec 2
 
 ## Learning Outcomes
 - General statistical literacy - can you read a paper and feel confident that you know what they did, or even better, how to do what they did?
